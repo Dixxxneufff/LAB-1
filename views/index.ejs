@@ -1,11 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<head>
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHqz5M5Q1e5PZGF2kcpPRwNkA6Dng/jlXGrxjStbA18Fs6S47Rh/jvTwVjUBPz1o7pH5Pt4Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <header>
+    <h1>Bienvenidos a <%= hotelName %></h1>
+    <p>Tu lugar ideal para disfrutar y descansar.</p>
+  </header>
+  
+  <section>
+    <h2>Servicios</h2>
+    <p>Descubre todo lo que tenemos para ti: spa, gimnasio, restaurante gourmet y más.</p>
+	<p>Si quieres saber más sobre los servicios que ofrecemos, <a href="/servicios" class="cta-link">haz clic aquí</a>.</p>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="contact-info">
+        <h3>Contacto</h3>
+        <p>Teléfono: <%= phone %></p>
+        <p>Ubicación: <%= location %></p>
+      </div>
+      <div class="social-media">
+        <h3>Síguenos</h3>
+        <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Hotel Paraíso. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+</body>
 </html>
+
