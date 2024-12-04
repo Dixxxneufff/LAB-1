@@ -1,15 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= title %></title>
   <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHqz5M5Q1e5PZGF2kcpPRwNkA6Dng/jlXGrxjStbA18Fs6S47Rh/jvTwVjUBPz1o7pH5Pt4Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-  <header>
-    <h1><%= title %></h1>
-    <p>Conoce más sobre lo que ofrecemos para hacer tu estadía inolvidable.</p>
+  <!-- Menú de navegación -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="/images/logo.png" alt="Hotel Paraíso Logo">
+    </div>
+    <ul class="nav-links">
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/servicios">Servicios</a></li>
+      <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+    </ul>
+    <div class="burger">
+      <i class="fas fa-bars"></i>
+    </div>
+  </nav>
+
+  <!-- Encabezado de Servicios -->
+  <header class="hero">
+    <div class="hero-text">
+      <h1><%= title %></h1>
+      <p>Conoce más sobre lo que ofrecemos para hacer tu estadía inolvidable.</p>
+    </div>
   </header>
 
+  <!-- Carrusel -->
   <section class="carousel">
     <div class="carousel-container">
       <% services.forEach((service, index) => { %>
@@ -18,50 +40,46 @@
           <div class="caption"><%= service.name %></div>
         </div>
       <% }) %>
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <div class="dots">
+      <% services.forEach((_, index) => { %>
+        <span class="dot" onclick="currentSlide(<%= index + 1 %>)"></span>
+      <% }) %>
     </div>
   </section>
-<!---------------------------------------------------IMAGENES QUE PASAMOS MEDIANTE FLECHAS O AUTOMATICAMENTE---------------------------------------------->
-	<section class="carousel">
-		<div class="carousel-container">
 
-			<div class="mySlides fade">
-				<a href="chuletas.html"><img src="images/spa.jpg" style="width:100%"></a>
-			</div>
-
-			<div class="mySlides fade">
-				<a href="lechazos.html"><img src="images/gym.jpg" style="width:100%"></a>
-			</div>
-
-			<div class="mySlides fade">
-				<a href="solomillos.html"><img src="images/restaurant.jpg" style="width:100%"></a>
-			</div>
-
-			<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-			<a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-		</div>
-	<br>
-
-		<div style="text-align:center">
-			<span class="dot"></span> 
-			<span class="dot"></span> 
-			<span class="dot"></span> 
-		</div>
-
+  <!-- Listado de servicios -->
   <section class="services-list">
     <h2>Servicios disponibles</h2>
     <ul>
-      <% services.forEach(service => { %>
-        <li>
+      <% services.forEach((service, index) => { %>
+        <li class="service-card">
           <img src="<%= service.image %>" alt="<%= service.name %>">
-          <p><%= service.name %></p>
+          <h3><%= service.name %></h3>
+          <p>Descripción breve: Disfruta de nuestro <%= service.name.toLowerCase() %>, diseñado para tu comodidad.</p>
+          <button onclick="openModal(<%= index %>)" class="btn">Más Información</button>
         </li>
       <% }) %>
     </ul>
   </section>
 
+  <!-- Modal -->
+  <div id="serviceModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img id="modal-image" src="" alt="Service Image">
+      <h2 id="modal-title"></h2>
+      <p id="modal-description"></p>
+    </div>
+  </div>
+
   <script src="/javascripts/carousel.js"></script>
+  <script src="/javascripts/services.js"></script>
 </body>
 </html>
+
+
 
 

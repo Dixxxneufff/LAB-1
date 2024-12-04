@@ -1,40 +1,40 @@
 let slideIndex = 1;
-showSlides(slideIndex); //slideIndex en 1 para representar la primera diapositiva
+showSlides(slideIndex); // Inicializa el índice de la diapositiva actual
 
 function plusSlides(n) {
-  showSlides(slideIndex += n);
+  showSlides(slideIndex += n); // Avanza o retrocede en las diapositivas
 }
 
 function currentSlide(n) {
-  showSlides(slideIndex = n); //muestra la diapositiva con el índice n
+  showSlides(slideIndex = n); // Muestra una diapositiva específica
 }
 
-//Define una función llamada showSlides que toma un argumento n que representa el índice de la diapositiva que se mostrará
-function showSlides(n) { 
+// Define la función principal para mostrar las diapositivas
+function showSlides(n) {
   let i;
-  let slides = document.getElementsByClassName("mySlides");
+  let slides = document.getElementsByClassName("slide"); // Cambiado a "slide"
   let dots = document.getElementsByClassName("dot");
 
   if (n > slides.length) {
-    slideIndex = 1; //Se comprueba si el valor de n es mayor que la cantidad total de imagenes, si es así nos lleva a la primera
+    slideIndex = 1; // Si el índice excede el número de diapositivas, vuelve a la primera
   }
   if (n < 1) {
-    slideIndex = slides.length; //nos llevará a la última diapositiva si intentamos avanzar hacia atrás desde la primera diapositiva
+    slideIndex = slides.length; // Si el índice es menor a 1, muestra la última diapositiva
   }
 
   for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none"; //se recorren todas las imagenes en el bucle y se ocultan todas inicialmente
+    slides[i].style.display = "none"; // Oculta todas las diapositivas
   }
 
   for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace("active", ""); //se recorren todos los puntos, y se elimina la clase active para que ninguno esté iluminado de primeras
+    dots[i].className = dots[i].className.replace(" active", ""); // Elimina la clase "active" de todos los puntos
   }
 
-  slides[slideIndex - 1].style.display = "block"; //se muestra la diap actual
-  dots[slideIndex - 1].className += " active"; //se pone en negro el punto indicador correspondiente a la foto en la que estemos
+  slides[slideIndex - 1].style.display = "block"; // Muestra la diapositiva actual
+  dots[slideIndex - 1].className += " active"; // Activa el punto correspondiente
 }
 
-// Configura un temporizador separado para avanzar automáticamente cada 3 segundos
-setInterval(function () {
+// Configuración automática para avanzar las diapositivas cada 3 segundos
+setInterval(() => {
   plusSlides(1);
 }, 3000);

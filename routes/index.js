@@ -6,8 +6,8 @@ router.get('/', function(req, res, next) {
   res.render('index', {
     title: 'Hotel Paraíso',
     hotelName: 'Hotel Paraíso',
-    phone: '+34 601 34 59 14',
-    location: 'Calle Pedro Ceron 7, Las Palmas de Gran Canaria, España',
+    phone: '+34 601 34 59 15',
+    location: 'Calle Pedro Ceron 5, Las Palmas de Gran Canaria, España',
   });
 });
 
