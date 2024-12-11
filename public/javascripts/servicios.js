@@ -6,22 +6,22 @@ const modalDescription = document.getElementById("modal-description");
 const servicesData = [
   {
     name: "Spa de lujo",
-    image: "../public/images/spa.jpg",
+    image: "/images/spa1.jpg",
     description: "Relájate en nuestro exclusivo spa con tratamientos personalizados y áreas de relajación."
   },
   {
     name: "Gimnasio",
-    image: "../public/images/gym.jpg",
+    image: "/images/gym1.jpg",
     description: "Mantente en forma en nuestro gimnasio totalmente equipado con vistas espectaculares."
   },
   {
     name: "Restaurante gourmet",
-    image: "../public/images/restaurant.jpg",
+    image: "/images/restaurant1.jpg",
     description: "Disfruta de una experiencia culinaria única con platos de alta gastronomía."
   },
   {
     name: "Piscina climatizada",
-    image: "../public/images/pool.jpg",
+    image: "/images/pool1.jpg",
     description: "Nada en nuestra piscina climatizada con temperatura ideal durante todo el año."
   }
 ];

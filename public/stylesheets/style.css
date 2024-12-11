@@ -133,8 +133,56 @@ button.btn:hover {
 footer {
   background-color: var(--secondary-bg);
   color: var(--primary-text);
-  padding: 20px;
+  padding: 20px 0;
 }
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  flex: 1;
+  margin: 10px;
+  text-align: center;
+}
+
+.footer-section h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footer-section p {
+  margin: 5px 0;
+}
+
+.footer-section a {
+  color: var(--primary-text);
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.footer-section a:hover {
+  color: var(--accent);
+}
+
+.footer-section .social-icon {
+  font-size: 24px;
+  margin-right: 5px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #bbb;
+}
+
 
 .social-icon {
   font-size: 24px;
@@ -232,6 +280,11 @@ footer {
   right: 10px;
 }
 
+.dots-container {
+  text-align: center;
+  margin-top: 10px;
+}
+
 .dot {
   cursor: pointer;
   height: 15px;
@@ -246,6 +299,7 @@ footer {
 .dot.active {
   background-color: #717171;
 }
+
 
 /*Añadimos responsividad*/
 @media (max-width: 768px) {
@@ -364,9 +418,12 @@ footer {
 }
 
 .modal img {
-  max-width: 100%;
-  border-radius: 10px;
+  max-width: 100%; /* Asegura que la imagen no exceda el ancho disponible */
+  max-height: 400px; /* Fija una altura máxima para uniformar las imágenes */
+  object-fit: cover; /* Ajusta las imágenes para que cubran el espacio sin deformarse */
+  border-radius: 10px; /* Opcional: agrega bordes redondeados */
 }
+
 
 .modal .close {
   position: absolute;

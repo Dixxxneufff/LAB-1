@@ -5,11 +5,13 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('servicios', {
     title: 'Servicios del Hotel',
+	phone: '+34 601 34 59 15',
+    location: 'Calle Pedro Ceron 5, Las Palmas de Gran Canaria, España',
     services: [
-      { name: 'Spa de lujo', image: '../public/images/spa.jpg' },
-      { name: 'Gimnasio', image: '../public/images/gym.jpg' },
-      { name: 'Restaurante gourmet', image: '../public/images/restaurant.jpg' },
-      { name: 'Piscina climatizada', image: '../public/images/pool.jpg' },
+      { name: 'Spa de lujo', image: '/images/spa2.jpg' },
+      { name: 'Gimnasio', image: '/images/gym2.jpg' },
+      { name: 'Restaurante gourmet', image: '/images/restaurant2.jpg' },
+      { name: 'Piscina climatizada', image: '/images/pool2.jpg' },
     ],
   });
 });

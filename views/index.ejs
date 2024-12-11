@@ -55,26 +55,31 @@
     </form>
   </section>
 
-  <!-- Sección "Sobre Nosotros" -->
-  <footer id="sobre-nosotros">
-    <div class="footer-content">
-      <div class="contact-info">
-        <h3>Sobre Nosotros</h3>
-        <p>Teléfono: <%= phone %></p>
-        <p>Ubicación: <%= location %></p>
-        <p>Email: contacto@hotelparaiso.com</p>
-      </div>
-      <div class="social-media">
-        <h3>Síguenos</h3>
-        <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
-        <a href="https://twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
-      </div>
+<!---- Footer ----->
+<footer id="sobre-nosotros">
+  <div class="footer-content">
+    <!-- Columna 1: Sobre Nosotros -->
+    <div class="footer-section">
+      <h3>Sobre Nosotros</h3>
+      <p>Teléfono: <%= phone %></p>
+      <p>Ubicación: <%= location %></p>
+      <p>Email: contacto@hotelparaiso.com</p>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2024 Hotel Paraíso. Todos los derechos reservados.</p>
+    <!-- Columna 2: Síguenos -->
+    <div class="footer-section">
+      <h3>Síguenos</h3>
+      <a href="https://www.instagram.com/hotelparaiso_inventado" target="_blank" class="social-icon">
+        <i class="fab fa-instagram"></i> @hotelParaiso
+      </a><br>
+      <a href="https://www.facebook.com/hotelparaiso_inventado" target="_blank" class="social-icon">
+        <i class="fab fa-facebook"></i> @hotelParaiso
+      </a>
     </div>
-  </footer>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 Hotel Paraíso. Todos los derechos reservados.</p>
+  </div>
+</footer>
 
   <script src="/javascripts/index.js"></script>
 </body>
