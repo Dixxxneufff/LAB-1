@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <title>Prueba AR - Cubo (hiro)</title>
-    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/3.4.6/aframe/build/aframe-ar.js"></script> 
-</head>
+<script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 <body style="margin : 0px; overflow: hidden;">
     <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
-        <a-marker preset="hiro">
-            <a-box color="red" scale="0.5 0.5 0.5"></a-box>
+        <a-marker preset="custom" type="pattern" url="images/pattern-menu_qr.patt">
+            <a-entity gltf-model="url(images/menu/menu.glb)" scale="1 1 1"></a-entity>
+        </a-marker>
         <a-entity camera></a-entity>
     </a-scene>
 </body>
