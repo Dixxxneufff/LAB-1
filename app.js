@@ -9,6 +9,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var serviciosRouter = require('./routes/servicios');
 var menuRouter = require('./routes/menu');
+var videochatRouter = require('./routes/videochat');
 
 
 var app = express();
@@ -28,6 +29,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/servicios', serviciosRouter);
 app.use('/menu', menuRouter);
+app.use('/videochat', videochatRouter);
 
 
 // catch 404 and forward to error handler
