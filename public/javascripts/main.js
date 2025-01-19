@@ -15,8 +15,23 @@ hangupButton.disabled = true;
 const localVideo = document.getElementById('localVideo');
 const remoteVideo = document.getElementById('remoteVideo');
 
+const chatForm = document.getElementById('chatForm');
+const chatInput = document.getElementById('chatInput');
+const chatMessages = document.getElementById('chatMessages');
+
+chatForm.addEventListener('submit', (event) => {
+    event.preventDefault(); // Evita que se recargue la página
+    const message = chatInput.value;
+    if (message.trim() !== '') {
+        signaling.postMessage({ type: 'chat', message: message });
+        displayMessage('Tú: ' + message); // Muestra tu propio mensaje
+        chatInput.value = ''; // Limpia el input
+    }
+});
+
 let pc;
 let localStream;
+let callState = 'idle'; //para controlar el estado de la llamada
 
 const signaling = new BroadcastChannel('webrtc');
 signaling.onmessage = e => {
@@ -26,11 +41,15 @@ signaling.onmessage = e => {
   }
   switch (e.data.type) {
     case 'offer':
-      handleOffer(e.data);
-      break;
+        callState = 'Conectando...';
+        updateCallStatus();
+        handleOffer(e.data);
+        break;
     case 'answer':
-      handleAnswer(e.data);
-      break;
+        callState = 'Llamada en curso';
+        updateCallStatus();
+        handleAnswer(e.data);
+        break;
     case 'candidate':
       handleCandidate(e.data);
       break;
@@ -44,9 +63,14 @@ signaling.onmessage = e => {
       break;
     case 'bye':
       if (pc) {
+		callState = 'Llamada finalizada';
+        updateCallStatus();
         hangup();
       }
       break;
+	case 'chat':
+        displayMessage('Otro: ' + e.data.message);
+        break;
     default:
       console.log('unhandled', e);
       break;
@@ -54,14 +78,20 @@ signaling.onmessage = e => {
 };
 
 startButton.onclick = async () => {
-  localStream = await navigator.mediaDevices.getUserMedia({audio: true, video: true});
-  localVideo.srcObject = localStream;
+  try {
+	localStream = await navigator.mediaDevices.getUserMedia({audio: true, video: true});
+	localVideo.srcObject = localStream;
 
 
-  startButton.disabled = true;
-  hangupButton.disabled = false;
-
-  signaling.postMessage({type: 'ready'});
+	startButton.disabled = true;
+	hangupButton.disabled = false;
+	
+	signaling.postMessage({type: 'ready'});
+   } catch (error) {
+     callState = 'Error al acceder a la cámara/micrófono: ' + error.message; //Control de errores
+     updateCallStatus();
+	 console.error(error);
+    }
 };
 
 hangupButton.onclick = async () => {
@@ -137,4 +167,10 @@ async function handleCandidate(candidate) {
   } else {
     await pc.addIceCandidate(candidate);
   }
+}
+
+function displayMessage(message) {
+    const li = document.createElement('li');
+    li.textContent = message;
+    chatMessages.appendChild(li);
 }

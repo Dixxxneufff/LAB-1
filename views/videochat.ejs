@@ -13,8 +13,6 @@
     <meta name="description" content="Videoconferencia con WebRTC">
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
     <meta itemprop="description" content="Videoconferencia con WebRTC">
-    <meta itemprop="image" content="../../../images/webrtc-icon-192x192.png">
-    <meta itemprop="name" content="WebRTC code samples">
     <meta name="mobile-web-app-capable" content="yes">
     <meta id="theme-color" name="theme-color" content="#ffffff">
 
@@ -22,9 +20,9 @@
 
     <title>Videoconferencia</title>
 
-    <link rel="icon" sizes="192x192" href="../../../images/webrtc-icon-192x192.png">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="./stylesheets/styleVideochat.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 
@@ -37,19 +35,34 @@
     <video id="localVideo" playsinline autoplay muted></video>
     <div class="video-label">Cámara Remota</div>
     <video id="remoteVideo" playsinline autoplay></video>
+	
+	<div id="callStatus"></div>
 
     <div class="box">
-        <button id="startButton">Iniciar Videollamda</button>
-        <button id="hangupButton">Colgar Videollamada</button>
+        <button id="startButton"><i class="fas fa-video"></i> Iniciar Videollamada</button>
+		<button id="hangupButton"><i class="fas fa-phone"></i> Colgar</button>
     </div>
+	
+	<div id="chatbox">
+    <ul id="chatMessages"></ul>
+    <form id="chatForm">
+        <input type="text" id="chatInput" placeholder="Escribe un mensaje">
+        <button type="submit">Enviar</button>
+    </form>
+</div>
 
 
 </div>
 
 <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
 <script src="./javascripts/main.js" async></script>
-
-<script src="../../../js/lib/ga.js"></script>
+<script>
+    const callStatusDiv = document.getElementById('callStatus');
+    function updateCallStatus() {
+        callStatusDiv.textContent = callState;
+    }
+    updateCallStatus(); // Llama a la función al inicio para mostrar el estado inicial
+</script>
 </body>
 </html>
 
