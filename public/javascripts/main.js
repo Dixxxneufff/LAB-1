@@ -44,6 +44,8 @@ localVideo.addEventListener('click', () => {
     }
 });
 
+
+/* Parte del chat */
 const chatForm = document.getElementById('chatForm');
 const chatInput = document.getElementById('chatInput');
 const chatMessages = document.getElementById('chatMessages');
@@ -57,6 +59,8 @@ chatForm.addEventListener('submit', (event) => {
         chatInput.value = ''; // Limpia el input
     }
 });
+
+/********* FIN CHAT ************/
 
 let pc;
 let localStream;

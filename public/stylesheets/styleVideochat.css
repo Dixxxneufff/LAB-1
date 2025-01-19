@@ -26,7 +26,7 @@
 
 #localVideo {
     position: absolute; /* Posicionamiento absoluto para superponer */
-    top: 20px; /* Ajusta la posición vertical */
+    bottom: 20px; /* Ajusta la posición vertical */
     right: 20px; /* Ajusta la posición horizontal */
     width: 25%; /* Video local pequeño */
     height: auto;
@@ -68,6 +68,63 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+#chat-container {
+    width: 30%; /* Ancho del contenedor del chat */
+    max-height: 300px; /* Altura máxima del contenedor */
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    overflow-y: auto; /* Habilita el scroll vertical */
+}
+
+#chatMessages {
+    list-style-type: none; /* Quita los puntos de la lista */
+    padding: 0;
+    margin: 0;
+}
+
+#chatMessages li {
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    word-wrap: break-word; /* Permite que las palabras largas se rompan */
+}
+
+#chatForm {
+    display: flex;
+    margin-top: 10px;
+}
+
+#chatInput {
+    flex-grow: 1; /* El input ocupa el espacio restante */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#chatForm button {
+    margin-left: 5px;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+}
+body {
+    font-family: 'Arial', sans-serif; /* Fuente más legible */
+    background-color: #f8f8f8; /* Fondo suave */
+    color: #333;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    min-height: 100vh; /* Asegura que el body ocupe toda la altura de la pantalla */
+    margin: 0; /* Elimina márgenes predeterminados del body */
 }
 
 @media (max-width: 768px) { /* Para pantallas más pequeñas que 768px de ancho */
