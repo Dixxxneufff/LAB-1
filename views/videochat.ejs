@@ -10,9 +10,9 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="description" content="WebRTC code samples">
+    <meta name="description" content="Videoconferencia con WebRTC">
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
-    <meta itemprop="description" content="Client-side WebRTC code samples">
+    <meta itemprop="description" content="Videoconferencia con WebRTC">
     <meta itemprop="image" content="../../../images/webrtc-icon-192x192.png">
     <meta itemprop="name" content="WebRTC code samples">
     <meta name="mobile-web-app-capable" content="yes">
@@ -20,7 +20,7 @@
 
     <base target="_blank">
 
-    <title>Peer connection between two tabs</title>
+    <title>Videoconferencia</title>
 
     <link rel="icon" sizes="192x192" href="../../../images/webrtc-icon-192x192.png">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
@@ -31,26 +31,18 @@
 <body>
 
 <div id="container">
-    <h1><a href="//webrtc.github.io/samples/" title="WebRTC samples homepage">WebRTC samples</a>
-        <span>Peer connection</span></h1>
-
-    <p>This sample shows how to setup a connection between two peers in different tabs using
-        <a href="https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection">RTCPeerConnection</a>
-        and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API">Broadcast Channel</a>
-    </p>
-
+    <h1>Videochat</h1>
+	
+    <div class="video-label">Tu cámara</div>
     <video id="localVideo" playsinline autoplay muted></video>
+    <div class="video-label">Cámara Remota</div>
     <video id="remoteVideo" playsinline autoplay></video>
 
     <div class="box">
-        <button id="startButton">Start</button>
-        <button id="hangupButton">Hang Up</button>
+        <button id="startButton">Iniciar Videollamda</button>
+        <button id="hangupButton">Colgar Videollamada</button>
     </div>
 
-    <p>Click the start button in two tabs (of the same browser; can be in different windows) to make a call</p>
-
-    <a href="https://github.com/webrtc/samples/tree/gh-pages/src/content/peerconnection/channel"
-       title="View source for this page on GitHub" id="viewSource">View source on GitHub</a>
 
 </div>
 

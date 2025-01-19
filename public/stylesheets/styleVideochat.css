@@ -5,44 +5,59 @@
  *  that can be found in the LICENSE file in the root of the source
  *  tree.
  */
-button {
-  margin: 0 20px 0 0;
-  width: 83px;
-}
-
-button#hangupButton {
-    margin: 0;
-}
-
+/* Estilos para los videos */
 video {
-  --width: 45%;
-  width: var(--width);
-  height: calc(var(--width) * 0.75);
-  margin: 0 0 20px 0;
-  vertical-align: top;
+    width: 45%; /* Ajusta el ancho según necesites */
+    margin: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra suave */
+    border-radius: 8px; /* Bordes redondeados */
+    border: 3px solid #eee;
 }
 
-video#localVideo {
-  margin: 0 20px 20px 0;
+/* Estilo para el video remoto (más grande) */
+#remoteVideo {
+    width: 70%; /* Más ancho que el video local */
+    margin: 20px auto; /* Centrado horizontalmente */
+    display: block;
 }
 
-div.box {
-  margin: 1em;
+/* Estilo para las etiquetas de los videos */
+.video-label {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 1.2em; /* Tamaño de fuente un poco mayor */
+    color: #333; /* Color de texto más oscuro */
 }
 
-@media screen and (max-width: 400px) {
-  button {
-    width: 83px;
-    margin: 0 11px 10px 0;
-  }
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente */
+    padding-top: 20px;
+}
 
-  video {
-    height: 90px;
-    margin: 0 0 10px 0;
-    width: calc(50% - 7px);
-  }
-  video#localVideo {
-    margin: 0 10px 20px 0;
-  }
+.box {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
 
+button {
+    background-color: #007bff; /* Color de fondo azul */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Transición suave al pasar el ratón */
+}
+
+button:hover {
+    background-color: #0056b3; /* Color de fondo más oscuro al pasar el ratón */
 }
