@@ -13,6 +13,7 @@
     flex-direction: column;
     align-items: center;
     padding-top: 20px;
+	margin-bottom: 80px;
 }
 
 #remoteVideo {
@@ -71,14 +72,21 @@ button:hover {
 }
 
 #chat-container {
-    width: 30%; /* Ancho del contenedor del chat */
-    max-height: 300px; /* Altura máxima del contenedor */
+    width: 30%;
+    height: 300px; /* Altura fija para el contenedor del chat */
     border: 1px solid #ccc;
     padding: 10px;
     margin-top: 20px;
     border-radius: 8px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    overflow-y: auto; /* Habilita el scroll vertical */
+    display: flex; /* Usamos flexbox para controlar el layout */
+    flex-direction: column;
+}
+
+#chatbox {
+    flex-grow: 1; /* Permite que los mensajes se expandan */
+    overflow-y: auto; /* Scroll solo para los mensajes */
+    padding-bottom: 50px; /* Espacio para que no se corten los últimos mensajes */
 }
 
 #chatMessages {
@@ -96,8 +104,15 @@ button:hover {
 }
 
 #chatForm {
-    display: flex;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: #eee;
     margin-top: 10px;
+    border-top: 1px solid #ccc;
+    display: flex;
+    box-sizing: border-box; /* Incluye el padding en el ancho */
 }
 
 #chatInput {

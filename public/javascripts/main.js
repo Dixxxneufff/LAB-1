@@ -16,29 +16,35 @@ const localVideo = document.getElementById('localVideo');
 const remoteVideo = document.getElementById('remoteVideo');
 
 localVideo.addEventListener('click', () => {
-    // Intercambia las clases para cambiar el tamaño y la posición
     localVideo.classList.toggle('large');
-    remoteVideo.classList.toggle('small');
 
     if (localVideo.classList.contains('large')) {
-        localVideo.style.position = 'static';
+        // Estilo para la cámara local GRANDE
         localVideo.style.width = '80%';
-        localVideo.style.margin = '0 auto';
-        localVideo.style.display = 'block';
-        remoteVideo.style.position = 'absolute';
-        remoteVideo.style.top = '20px';
-        remoteVideo.style.right = '20px';
-        remoteVideo.style.width = '25%';
-        remoteVideo.style.margin = '0';
-
-    } else {
-        localVideo.style.position = 'absolute';
+        localVideo.style.height = 'auto';
+        localVideo.style.bottom = 'auto'; // Revertimos el bottom para que no interfiera con el top
         localVideo.style.top = '20px';
         localVideo.style.right = '20px';
-        localVideo.style.width = '25%';
+        localVideo.style.position = 'absolute';
         localVideo.style.margin = '0';
-        remoteVideo.style.position = 'static';
+        remoteVideo.style.width = '25%';
+        remoteVideo.style.height = 'auto';
+        remoteVideo.style.position = 'absolute';
+        remoteVideo.style.bottom = '20px';
+        remoteVideo.style.right = '20px';
+        remoteVideo.style.margin = '0';
+        remoteVideo.style.display = 'block';
+    } else {
+        // Estilo para la cámara local PEQUEÑA (posición original)
+        localVideo.style.width = '25%';
+        localVideo.style.height = 'auto';
+        localVideo.style.position = 'absolute';
+        localVideo.style.bottom = '20px';
+        localVideo.style.right = '20px';
+        localVideo.style.margin = '0';
         remoteVideo.style.width = '80%';
+        remoteVideo.style.height = 'auto';
+        remoteVideo.style.position = 'static';
         remoteVideo.style.margin = '0 auto';
         remoteVideo.style.display = 'block';
     }
