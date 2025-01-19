@@ -36,7 +36,7 @@
     cursor: pointer; /* Cambia el cursor al pasar por encima */
     transition: all 0.3s ease; /* Transición suave para el cambio de tamaño */
 }
-}
+
 
 .video-label {
     text-align: center;
