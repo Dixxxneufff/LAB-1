@@ -15,6 +15,35 @@ hangupButton.disabled = true;
 const localVideo = document.getElementById('localVideo');
 const remoteVideo = document.getElementById('remoteVideo');
 
+localVideo.addEventListener('click', () => {
+    // Intercambia las clases para cambiar el tamaño y la posición
+    localVideo.classList.toggle('large');
+    remoteVideo.classList.toggle('small');
+
+    if (localVideo.classList.contains('large')) {
+        localVideo.style.position = 'static';
+        localVideo.style.width = '80%';
+        localVideo.style.margin = '0 auto';
+        localVideo.style.display = 'block';
+        remoteVideo.style.position = 'absolute';
+        remoteVideo.style.top = '20px';
+        remoteVideo.style.right = '20px';
+        remoteVideo.style.width = '25%';
+        remoteVideo.style.margin = '0';
+
+    } else {
+        localVideo.style.position = 'absolute';
+        localVideo.style.top = '20px';
+        localVideo.style.right = '20px';
+        localVideo.style.width = '25%';
+        localVideo.style.margin = '0';
+        remoteVideo.style.position = 'static';
+        remoteVideo.style.width = '80%';
+        remoteVideo.style.margin = '0 auto';
+        remoteVideo.style.display = 'block';
+    }
+});
+
 const chatForm = document.getElementById('chatForm');
 const chatInput = document.getElementById('chatInput');
 const chatMessages = document.getElementById('chatMessages');
